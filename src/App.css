@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&display=swap');
+
 /* RESET */
 
 /*
@@ -27,6 +29,11 @@ html, body {
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  font-family: 'Roboto Mono', monospace;
+}
+a{
+  text-decoration: none;
+  color:inherit;
 }
 /*
   6. Improve media defaults
@@ -35,3 +42,54 @@ img, picture, video, canvas, svg {
   display: block;
   max-width: 100%;
 }
+
+
+
+
+body {
+ 
+  background-color: #e3e3e3;
+
+}
+
+/*   
+.glass {
+  background: white;
+  min-height: 80vh;
+  width: 80%;
+  
+  background: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 0.7),
+    rgba(255, 255, 255, 0.3)
+  );
+  border-radius: 2rem;
+  z-index: 2;
+  backdrop-filter: blur(2rem);
+  padding: 1.5rem;
+
+
+}
+
+.circle1,
+.circle2 {
+  background: white;
+  background: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 0.8),
+    rgba(255, 255, 255, 0.3)
+  );
+  height: 10rem;
+  width: 10rem;
+  position: absolute;
+  border-radius: 50%;
+}
+
+.circle1 {
+  top: 5%;
+  right: 5%;
+}
+.circle2 {
+  bottom: 5%;
+  left: 5%;
+} */

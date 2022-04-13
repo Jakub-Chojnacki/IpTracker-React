@@ -1,22 +1,19 @@
-import { useState } from 'react'
+import React,{ useState } from 'react'
 import './App.css'
-import { Routes, Route, Link } from "react-router-dom";
 import Home from './pages/Home'
 import Results from './pages/Results'
+import * as L from 'leaflet'
+import IpContext from './store/ip-context'
+import {motion} from 'framer-motion'
 
 function App() {
-  
-
+ 
   return (
-    <div className="App">
-      <h1>Welcome to Ip-Tracker</h1>
-      <Routes>
-        <Route path="/" element={<Home />}/>
-        <Route path="results" element={<Results />}/>
-      </Routes>
-     
-      
-    </div>
+    
+    <main className="App">
+        <Home />
+    </main>
+    
   )
 }
 
