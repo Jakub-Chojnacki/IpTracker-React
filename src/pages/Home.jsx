@@ -2,6 +2,7 @@
 import {useRef,useState,useEffect} from 'react'
 import styles from './Home.module.css'
 import Map from '../components/UI/Map'
+import MainHeader from '../components/UI/MainHeader'
 
 const Home = (props) => {
     const inputRef = useRef(null)
@@ -12,22 +13,25 @@ const Home = (props) => {
         setIp(inputRef.current.value)
     }
 
-    useEffect(() => {
-        fetch(`https://geo.ipify.org/api/v1?apiKey=at_NR13vLwPZnckYQlgtecvHdVK3VMXi&ipAddress=${ip}`)
-        .then(res => res.json())
-        .then((data) => setGeoData(data))
-    },[ip])
+    // useEffect(() => {
+    //     fetch(`https://geo.ipify.org/api/v1?apiKey=at_NR13vLwPZnckYQlgtecvHdVK3VMXi&ipAddress=${ip}`)
+    //     .then(res => res.json())
+    //     .then((data) => setGeoData(data))
+    // },[ip])
   
    
-    console.log(ip)
+    console.log(geoData)
     return (
-    <div className={styles.home}>
-         <h1>Home Page</h1>
+    <div className={styles.container}>
+         <MainHeader />
          <form onSubmit={handleSubmit}>
             <input ref={inputRef} placeholder="enter the IP"></input>
             <button>{'>'}</button>
          </form>
-        { geoData && <Map position={[geoData.location.lat,geoData.location.lng]} />}
+         <div className={styles.results}>
+         { geoData && <Map position={[geoData.location.lat,geoData.location.lng]} ip={geoData.ip} />}
+         </div>
+     
 
     </div>
     )
