@@ -2,7 +2,7 @@
 import {useRef,useState,useEffect} from 'react'
 import styles from './Home.module.css'
 import Map from '../components/UI/Map'
-import MainHeader from '../components/UI/MainHeader'
+import Info from '../components/UI/Info'
 
 const Home = (props) => {
     const inputRef = useRef(null)
@@ -19,16 +19,15 @@ const Home = (props) => {
         .then((data) => setGeoData(data))
     },[ip])
   
-   
-    console.log(geoData)
+
     return (
     <div className={styles.container}>
-         <MainHeader />
          <form onSubmit={handleSubmit}>
-            <input ref={inputRef} placeholder="enter the IP"></input>
-            <button>{'>'}</button>
+            <input ref={inputRef} placeholder="enter the IP" className={styles.input}></input>
+            <button className={styles.btn}>{'>'}</button>
          </form>
          <div className={styles.results}>
+          <Info />   
          { geoData && <Map position={[geoData.location.lat,geoData.location.lng]} ip={geoData.ip} />}
          </div>
      

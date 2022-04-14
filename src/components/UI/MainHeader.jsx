@@ -3,7 +3,7 @@ import styles from './MainHeader.module.css'
 import {motion} from 'framer-motion'
 
 const logoVariants = {
-    start: {y: '-100vh'},
+    start: {y: '-100vh', type:'spring', stiffness: '100'},
     end: {y:0,
     transition:{duration:0.5}}
     

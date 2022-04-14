@@ -44,52 +44,7 @@ img, picture, video, canvas, svg {
   max-width: 100%;
 }
 
-
-
-
-
-.app{
-  height: 100%;
+.leaflet-container{
+  min-width:400px;
+  min-height: 500px;
 }
-
-/*   
-.glass {
-  background: white;
-  min-height: 80vh;
-  width: 80%;
-  
-  background: linear-gradient(
-    to right bottom,
-    rgba(255, 255, 255, 0.7),
-    rgba(255, 255, 255, 0.3)
-  );
-  border-radius: 2rem;
-  z-index: 2;
-  backdrop-filter: blur(2rem);
-  padding: 1.5rem;
-
-
-}
-
-.circle1,
-.circle2 {
-  background: white;
-  background: linear-gradient(
-    to right bottom,
-    rgba(255, 255, 255, 0.8),
-    rgba(255, 255, 255, 0.3)
-  );
-  height: 10rem;
-  width: 10rem;
-  position: absolute;
-  border-radius: 50%;
-}
-
-.circle1 {
-  top: 5%;
-  right: 5%;
-}
-.circle2 {
-  bottom: 5%;
-  left: 5%;
-} */

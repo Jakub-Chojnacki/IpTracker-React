@@ -1,3 +1,36 @@
 .container{
-    min-height: 100vh;
+    min-height: 100%;
+    padding: 1em;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+    flex-direction: column;
+    
+}
+
+.input{
+    padding: 1em;
+    border: 1px solid #3e3e3e;
+    border-radius: 4px;
+    
+}
+
+.btn{
+    padding: 1em;
+    outline: none;
+    border:none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.results{
+    display:flex;
+    flex-direction: row;
+}
+
+@media (max-width: 768px){
+    .results{
+        flex-direction: column
+    }
 }
