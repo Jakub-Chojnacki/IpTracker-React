@@ -3,13 +3,14 @@ import {useRef,useState,useEffect} from 'react'
 import styles from './Home.module.css'
 import Map from '../components/UI/Map'
 import Info from '../components/UI/Info'
+import {motion } from 'framer-motion'
 
 const Home = (props) => {
-    const inputRef = useRef(null)
+    const inputRef = useRef('')
     const [ip,setIp] = useState('')
+    const [isFocused,setIsFocused] = useState(false)
     const [geoData,setGeoData] = useState('')
-    const handleSubmit = (e) => {
-        e.preventDefault()
+    const handleSubmit = () => {
         setIp(inputRef.current.value)
     }
 
@@ -19,19 +20,22 @@ const Home = (props) => {
         .then((data) => setGeoData(data))
     },[ip])
   
+    const wasTouched = isFocused || inputRef.current.value;
+    
 
     return (
     <div className={styles.container}>
-         <form onSubmit={handleSubmit}>
-            <input ref={inputRef} placeholder="enter the IP" className={styles.input}></input>
-            <button className={styles.btn}>{'>'}</button>
-         </form>
+         <div className={styles.group}>
+    
+            <input onFocus={()=> setIsFocused(true)} onBlur={()=> setIsFocused(false)} ref={inputRef} className={styles.input} id="IP" name="IP" ></input>
+            <motion.label htmlFor='IP' className={styles.label} animate={wasTouched ? {y:-25} : {y:0}} >IP</motion.label>
+         
+        </div>
+        <motion.button onClick={handleSubmit} className={styles.btn} whileHover={{scale:1.05}}>Get your data</motion.button>
          <div className={styles.results}>
-          <Info />   
+         { geoData && <Info data={geoData}/>  } 
          { geoData && <Map position={[geoData.location.lat,geoData.location.lng]} ip={geoData.ip} />}
          </div>
-     
-
     </div>
     )
 }
