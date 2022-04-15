@@ -18,3 +18,12 @@
     display: grid;
     grid-template-rows: 1fr 1fr 2fr;
 }
+
+ul{
+    list-style:none;
+}
+.weather__container{
+    display:grid;
+    place-items:center;
+    grid-template-columns: 1fr 0.5fr;
+}
