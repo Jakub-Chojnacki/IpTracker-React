@@ -1,21 +1,20 @@
 import {motion} from 'framer-motion'
-
+import styles from './Loader.module.css'
 const Loader = () => {
-    const loaderVariants = {
-        loading: {
-            x: [-20,20],
-            y: [0,-30],
-            transition: {
-                x:{yoyo:Infinity, duration: 0.5},
-                y:{yoyo:Infinity, duration: 0.25,ease:'easeOut'}
-            }
-        }
-    }
+    const spinTransition = {
+        loop: Infinity,
+        ease: "linear",
+        duration: 1
+      };
+      
     return (
-        <motion.div className={styles.loader} variants={loaderVariants}
-        animate="loading">
-
-        </motion.div>
+        <div className={styles.container}>
+            <motion.span 
+            className={styles.loader} 
+            animate={{rotate:360}} 
+            transition={spinTransition}>
+            </motion.span>
+        </div>
     )
 }
 
