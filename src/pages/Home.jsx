@@ -3,6 +3,7 @@ import {useRef,useState,useEffect} from 'react'
 import styles from './Home.module.css'
 import Map from '../components/UI/Map'
 import Info from '../components/UI/Info'
+import Loader from '../components/UI/Loader'
 import {motion } from 'framer-motion'
 import Description from '../components/Description'
 
@@ -42,6 +43,7 @@ const Home = () => {
         </form>
         {error && <motion.p  animate={{x:[0,-20,20,-20,20,0]}} className={styles.error}>{error}</motion.p>}
         <motion.button onClick={handleSubmit} className={styles.btn} whileHover={{scale:1.05}}>Track the IP</motion.button>
+        {!geoData && <Loader/>}
          {geoData && <motion.section className={styles.results} initial={{opacity:0}} animate={{opacity:1, transition:{duration: 1}}}>
             <Info data={geoData}/>  
           <Map position={[geoData.location.lat,geoData.location.lng]} ip={geoData.ip} />
