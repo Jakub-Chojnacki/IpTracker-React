@@ -12,7 +12,7 @@ const Info = (props) => {
         .then(data => setWeatherData(data))
     },[lat,lng])
     return (
-        <main className={styles.info}>
+        <main  className={styles.info}>
             <h1>Info</h1>
             <div className={styles.grid}>
                 <div>

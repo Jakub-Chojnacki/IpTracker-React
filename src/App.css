@@ -44,9 +44,23 @@ img, picture, video, canvas, svg {
   max-width: 100%;
 }
 
-/* leaflet map requires min width/height */
-.leaflet-container{
-  min-width:500px;  
-  min-height: 500px;
-  border-radius: 1rem;
+  /* leaflet map requires min width/height */
+
+@media (max-width:550px){
+  .leaflet-container{
+    min-width:400px;  
+    min-height: 400px;
+    border-radius: 1rem;
+  }
+}
+
+
+@media (min-width: 550px){
+
+  .leaflet-container{
+    min-width:500px;  
+    min-height: 500px;
+    border-radius: 1rem;
+  }
+
 }

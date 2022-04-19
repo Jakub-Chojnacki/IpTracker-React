@@ -4,8 +4,9 @@ import styles from './Home.module.css'
 import Map from '../components/UI/Map'
 import Info from '../components/UI/Info'
 import {motion } from 'framer-motion'
+import Description from '../components/Description'
 
-const Home = (props) => {
+const Home = () => {
     const inputRef = useRef('')
     const [ip,setIp] = useState('')
     const [error,setError] = useState('')
@@ -34,16 +35,17 @@ const Home = (props) => {
     
     return (
     <main className={styles.container}>
+        <Description/>
          <form className={styles.form}>
             <input onFocus={()=> setIsFocused(true)} onBlur={()=> setIsFocused(false)} ref={inputRef} className={styles.input} id="IP" name="IP" ></input>
             <motion.label htmlFor='IP' className={styles.label} animate={wasTouched ? {y:-25} : {y:0}} >IP</motion.label>
         </form>
         {error && <motion.p  animate={{x:[0,-20,20,-20,20,0]}} className={styles.error}>{error}</motion.p>}
-        <motion.button onClick={handleSubmit} className={styles.btn} whileHover={{scale:1.05}}>Get your data</motion.button>
-         {geoData && <section className={styles.results}>
+        <motion.button onClick={handleSubmit} className={styles.btn} whileHover={{scale:1.05}}>Track the IP</motion.button>
+         {geoData && <motion.section className={styles.results} initial={{opacity:0}} animate={{opacity:1, transition:{duration: 1}}}>
             <Info data={geoData}/>  
           <Map position={[geoData.location.lat,geoData.location.lng]} ip={geoData.ip} />
-         </section>}
+         </motion.section>}
     </main>
     )
 }

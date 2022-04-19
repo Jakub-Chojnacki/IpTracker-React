@@ -1,6 +1,6 @@
 .info {
     color:white;
-    padding: 2em 5em;
+    padding: 1em 1.5em;
     display:flex;
     flex-direction: column;
     justify-content: center;
@@ -11,12 +11,14 @@
     -webkit-backdrop-filter: blur( 10px );
     border-radius: 10px;
     border: 1px solid rgba( 255, 255, 255, 0.18 );
+  
     
 }
 
 .grid{
     display: grid;
     grid-template-rows: 1fr 1fr 2fr;
+    gap: 0.5em;
 }
 
 ul{
@@ -26,4 +28,10 @@ ul{
     display:grid;
     place-items:center;
     grid-template-columns: 1fr 0.5fr;
+}
+
+@media (max-width:1000px){
+    .info{
+       
+    }
 }
