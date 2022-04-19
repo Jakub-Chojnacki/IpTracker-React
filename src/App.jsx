@@ -1,10 +1,7 @@
-import React,{ useState } from 'react'
+import React from 'react'
 import './App.css'
 import Home from './pages/Home'
-import * as L from 'leaflet'
-import IpContext from './store/ip-context'
-import {motion} from 'framer-motion'
-import MainHeader from './components/UI/MainHeader'
+import MainHeader from './components/MainHeader'
 
 function App() {
  

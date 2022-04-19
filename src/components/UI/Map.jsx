@@ -1,9 +1,7 @@
 import { MapContainer, TileLayer, Marker, Popup ,useMap} from 'react-leaflet'
 import styles from './Map.module.css'
 
-const Map = (props) => {
-   
-    
+const Map = (props) => { 
  return (
         <div className="map">
             <MapContainer className={styles.leaflet}>

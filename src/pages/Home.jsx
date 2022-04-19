@@ -8,10 +8,21 @@ import {motion } from 'framer-motion'
 const Home = (props) => {
     const inputRef = useRef('')
     const [ip,setIp] = useState('')
+    const [error,setError] = useState('')
     const [isFocused,setIsFocused] = useState(false)
     const [geoData,setGeoData] = useState('')
+    
+   
+    const ipValidation = /\b(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\b/;
+    const wasTouched = isFocused || inputRef.current.value;
+
     const handleSubmit = () => {
-        setIp(inputRef.current.value)
+        if(inputRef.current.value.match(ipValidation)) {
+            setError('')
+            setIp(inputRef.current.value)
+        }else{
+            setError('It is not a correct IP Address. Please, try again.')
+        }
     }
 
     useEffect(() => {
@@ -20,23 +31,20 @@ const Home = (props) => {
         .then((data) => setGeoData(data))
     },[ip])
   
-    const wasTouched = isFocused || inputRef.current.value;
     
-
     return (
-    <div className={styles.container}>
-         <div className={styles.group}>
-    
+    <main className={styles.container}>
+         <form className={styles.form}>
             <input onFocus={()=> setIsFocused(true)} onBlur={()=> setIsFocused(false)} ref={inputRef} className={styles.input} id="IP" name="IP" ></input>
             <motion.label htmlFor='IP' className={styles.label} animate={wasTouched ? {y:-25} : {y:0}} >IP</motion.label>
-         
-        </div>
+        </form>
+        {error && <motion.p  animate={{x:[0,-20,20,-20,20,0]}} className={styles.error}>{error}</motion.p>}
         <motion.button onClick={handleSubmit} className={styles.btn} whileHover={{scale:1.05}}>Get your data</motion.button>
-         <div className={styles.results}>
-         { geoData && <Info data={geoData}/>  } 
-         { geoData && <Map position={[geoData.location.lat,geoData.location.lng]} ip={geoData.ip} />}
-         </div>
-    </div>
+         {geoData && <section className={styles.results}>
+            <Info data={geoData}/>  
+          <Map position={[geoData.location.lat,geoData.location.lng]} ip={geoData.ip} />
+         </section>}
+    </main>
     )
 }
 
