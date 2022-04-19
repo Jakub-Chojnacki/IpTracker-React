@@ -8,3 +8,7 @@ You can input an IP Address to get ISP and Location data from ipify geolocation 
 * Leaflet (React Leaflet library)
 * Framer Motion
 * React Icons
+
+🔴IMPORTANT❗🔴
+Some adblocking extension(like uBlock) might interfere and block the API response. 
+Try turning it off and refreshing the website if you can't see the map.
