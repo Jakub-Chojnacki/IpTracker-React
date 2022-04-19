@@ -27,11 +27,11 @@ const Home = () => {
         }
     }
 
-    // useEffect(() => {
-    //     fetch(`https://geo.ipify.org/api/v1?apiKey=at_NR13vLwPZnckYQlgtecvHdVK3VMXi&ipAddress=${ip}`)
-    //     .then(res => res.json())
-    //     .then((data) => setGeoData(data))
-    // },[ip])
+    useEffect(() => {
+        fetch(`https://geo.ipify.org/api/v1?apiKey=at_NR13vLwPZnckYQlgtecvHdVK3VMXi&ipAddress=${ip}`)
+        .then(res => res.json())
+        .then((data) => setGeoData(data))
+    },[ip])
   
     
     return (
