@@ -9,6 +9,6 @@ You can input an IP Address to get ISP and Location data from ipify geolocation 
 * Framer Motion
 * React Icons
 
-🔴IMPORTANT❗🔴
+🔴IMPORTANT❗🔴\
 Some adblocking extension(like uBlock) might interfere and block the API response. 
 Try turning it off and refreshing the website if you can't see the map.
