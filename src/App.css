@@ -43,6 +43,13 @@ img, picture, video, canvas, svg {
   display: block;
   max-width: 100%;
 }
+/*
+Remove blue background when input is selected
+*/
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+  transition: background-color 600000s 0s, color 600000s 0s;
+}
 
   /* leaflet map requires min width/height */
 
